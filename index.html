@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>TrackerNet PredictionDetailed Thing</title>
+
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <header id="header">
+        <h1 id="title">TrackerNet PredictionDetailed Thing</h1>
+        <p id="sub"></p>
+    </header>
+
+    <hr>
+
+    <form action="./nexttrain" method="get">
+        <label for="line">Line: </label>
+        <select id="line" name="line">
+            <option value="B">Bakerloo</option>
+            <option value="C">Central</option>
+            <option value="D">District</option>
+            <option value="H">Hammersmith & Circle</option>
+            <option value="J">Jubilee</option>
+            <option value="M">Metropolitan</option>
+            <option value="N">Northern</option>
+            <option value="P">Piccadilly</option>
+            <option value="V">Victoria</option>
+            <option value="W">Waterloo & City</option>
+        </select>
+
+        <br><br>
+
+        <label for="station">Station 3LC: </label>
+        <input id="station" name="station" placeholder="XXX" type="text">
+
+        <br><br>
+
+        <input type="submit" value="Go">
+    </form>
+</body>
+
+</html>
