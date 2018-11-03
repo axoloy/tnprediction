@@ -60,7 +60,7 @@ $.ajax({
             // Trains
             $(el).find("T").each((index, iel) => {
                 setNo = $(iel).attr("SetNo");
-                dest = $(iel).attr("Destination")
+                dest = $(iel).attr("Destination");
 
                 $trainEl = $("<li>", {
                     class: "train",
@@ -76,7 +76,7 @@ $.ajax({
                     $trainDescrEl.append(`<li><b>${attr}:</b> ${attrValue}`);
                 }
 
-                $platformEl.append($trainEl.append($trainDescrEl))
+                $platformEl.append($trainEl.append($trainDescrEl));
             })
 
             $platformEl.appendTo("#nexttrain");
