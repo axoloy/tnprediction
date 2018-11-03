@@ -1,0 +1,52 @@
+/* ROBOTO IS BAE */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Roboto, sans-serif;
+    font-size: 1em;
+}
+
+
+input#station {
+    /* TrackerNet's API is case-insensitive AFAICT so 
+     * no need to actually enforce uppercase for inputs */
+    text-transform: uppercase;
+}
+
+
+#header #title {
+    margin-bottom: 0.5em;
+}
+#header #sub {
+    white-space: pre-line;
+}
+#header #sub.error {
+    color: #ff0000;
+}
+#header #sub.success {
+    color: #00ff00;
+}
+
+
+ul.platform {
+    /* Remove padding and bullets */
+    padding-left: 5px;
+    list-style-type: none;
+    list-style-position: inside;
+
+    /* Pad it all */
+    border-bottom: 1px solid #fff;
+    padding-bottom: 30px;
+}
+li.train {
+    /* Nice paddin */
+    padding-left: 20px;
+}
+
+
+.train h4 {
+    margin-bottom: 0.5em;
+}
