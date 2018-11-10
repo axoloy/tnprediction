@@ -1,8 +1,14 @@
+// http://content.tfl.gov.uk/trackernet-data-services-guide-beta.pdf 
+// (Page 9)
+
+
 (function($) {
 
-const attrs = ["Location", "Destination", "TripNo", "TimeTo", "DepartTime", "DepartInterval"];
+const ATTRS = ["Location", "Destination", "TripNo", "TimeTo", "DepartTime", "DepartInterval"];
 
-const corsUrl = "https://cors-anywhere.herokuapp.com";
+const API_URL = "http://api.tfl.gov.uk/TrackerNet/PredictionDetailed";
+const CORS_URL = "https://cors-anywhere.herokuapp.com";
+
 
 const searchParams = new URLSearchParams(window.location.search);
 const line = searchParams.get("line");
@@ -15,7 +21,7 @@ if (!(line && station)) {
         .addClass("error")
         .text("Error: No Line/Station specified!");
     return;
-};
+}
 
 
 $.ajax({
@@ -24,7 +30,7 @@ $.ajax({
     headers: {
         "X-Requested-With": "XMLHTTPRequest"
     },
-    url: `${corsUrl}/http://api.tfl.gov.uk/TrackerNet/PredictionDetailed/${line}/${station}`,
+    url: `${CORS_URL}/${API_URL}/${line}/${station}`,
     error: (xhr, status, err) => {
         $("#header #sub")
             .addClass("error")
@@ -47,17 +53,20 @@ $.ajax({
         let $platformEl, $trainEl, $trainDescrEl;
 
         // Platforms
+        // <P N="Eastbound - Platform 2" Num="2" TrackCode="TJ20641" NextTrain="false">
         $xml.find("P").each((index, el) => {
             platformName = $(el).attr("N");
 
             $platformEl = $("<ul>", {
                 "class": "platform",
-                "data-name": platformName,
-                "data-num": $(el).attr("Num"),
                 "html": `<h3>${platformName}</h3>`
-            })
+            });
 
             // Trains
+            // <T LCID="1098872" SetNo="302" TripNo="14" SecondsTo="186" TimeTo="3:30"
+            //    Location="At Westminster Platform 3" Destination="Stratford" DestCode="423"
+            //    Order="0" DepartTime="17:18:12" DepartInterval="186" Departed="0"
+            //    Direction="0" IsStalled="0" TrackCode="TJ20700" LN="J"/>
             $(el).find("T").each((index, iel) => {
                 setNo = $(iel).attr("SetNo");
                 dest = $(iel).attr("Destination");
@@ -65,25 +74,23 @@ $.ajax({
                 $trainEl = $("<li>", {
                     class: "train",
                     html: `<h4>${setNo} ${dest}</h4>`
-                })
+                });
 
-                $trainDescrEl = $("<ul>", {
-                    class: "train-description",
-                })
+                $trainDescrEl = $("<ul>", { class: "train-description" });
                 // Get all the attribute data we want into the train description
-                for (const attr of attrs) {
+                for (const attr of ATTRS) {
                     attrValue = $(iel).attr(attr);
-                    $trainDescrEl.append(`<li><b>${attr}:</b> ${attrValue}`);
+                    $trainDescrEl.append(`<li><b>${attr}:</b> ${attrValue}</li>`);
                 }
 
                 $platformEl.append($trainEl.append($trainDescrEl));
-            })
+            });
 
             $platformEl.appendTo("#nexttrain");
-        })
+        });
     }
 
-})
+});
 
 
 })(jQuery);
