@@ -6,7 +6,7 @@
 
 const ATTRS = ["Location", "Destination", "TripNo", "TimeTo", "DepartTime", "DepartInterval"];
 
-const API_URL = "http://api.tfl.gov.uk/TrackerNet/PredictionDetailed";
+const API_URL = "https://api.tfl.gov.uk/TrackerNet/PredictionDetailed";
 const CORS_URL = "https://cors-anywhere.herokuapp.com";
 
 
