@@ -1,4 +1,3 @@
-/* ROBOTO IS BAE */
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
 
 
@@ -7,11 +6,6 @@ body {
     color: #fff;
     font-family: Roboto, sans-serif;
     font-size: 1em;
-}
-
-
-.hidden {
-    display: none !important;
 }
 
 
