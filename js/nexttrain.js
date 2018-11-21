@@ -31,11 +31,15 @@ $.ajax({
         "X-Requested-With": "XMLHTTPRequest"
     },
     url: `${CORS_URL}/${API_URL}/${line}/${station}`,
+
+    beforeSend: () => $("#header #sub").text("Sending request..."),
+    
     error: (xhr, status, err) => {
         $("#header #sub")
             .addClass("error")
             .text(`Error\nStatus: "${status}",\nError: "${err}"`);
     },
+
     success: (xml) => {
         const $xml = $(xml);
 
