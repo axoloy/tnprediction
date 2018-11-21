@@ -320,7 +320,7 @@
         document.querySelector("#line").addEventListener("change", (event) => {
             const line = event.target.value;
 
-            const selectEl = document.querySelector("#station")
+            const selectEl = document.querySelector("#station");
             // [data-lines] so it doesn't try to do anything with the "default" blank option
             const optionEls = Array.from(selectEl.querySelectorAll("option[data-lines]"));
 
