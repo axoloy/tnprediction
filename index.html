@@ -325,7 +325,7 @@
             const optionEls = Array.from(selectEl.querySelectorAll("option[data-lines]"));
 
             // Hide them all first
-            optionEls.forEach((el) => el.classList.add("hidden"));
+            optionEls.forEach((el) => el.hidden = true);
 
             // Now just show the ones that belong to that line
             optionEls
@@ -333,7 +333,7 @@
                 // into an array and doing a `.indexOf`, which would be
                 // unnecessarily expensive
                 .filter((el) => el.getAttribute("data-lines").search(line) >= 0)
-                .forEach((el) => el.classList.remove("hidden"));
+                .forEach((el) => el.hidden = false);
             
             // Reset the select to index `0` (blank) because otherwise it'll
             // just stay on whatever we had selected previously
