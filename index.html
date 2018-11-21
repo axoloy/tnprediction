@@ -17,30 +17,329 @@
 
     <hr>
 
-    <form action="nexttrain" method="get">
-        <label for="line">Line: </label>
-        <select id="line" name="line">
-            <option value="B">Bakerloo</option>
-            <option value="C">Central</option>
-            <option value="D">District</option>
-            <option value="H">Hammersmith & Circle</option>
-            <option value="J">Jubilee</option>
-            <option value="M">Metropolitan</option>
-            <option value="N">Northern</option>
-            <option value="P">Piccadilly</option>
-            <option value="V">Victoria</option>
-            <option value="W">Waterloo & City</option>
-        </select>
+    <form action="nexttrain" id="form" method="get">
+        <div>
+            <label for="line">Line: </label>
+            <select id="line" name="line">
+                <option selected value=""></option>
+                <option value="B">Bakerloo</option>
+                <option value="C">Central</option>
+                <option value="D">District</option>
+                <option value="H">Hammersmith & Circle</option>
+                <option value="J">Jubilee</option>
+                <option value="M">Metropolitan</option>
+                <option value="N">Northern</option>
+                <option value="P">Piccadilly</option>
+                <option value="V">Victoria</option>
+                <option value="W">Waterloo & City</option>
+            </select>
+        </div>
 
-        <br><br>
+        <br>
 
-        <label for="station">Station 3LC: </label>
-        <input id="station" name="station" placeholder="XXX" type="text">
+        <div>
+            <!--
+            Just in case we need it again...
 
-        <br><br>
+            <label for="station">Station 3LC: </label>
+            <input id="station" name="station" placeholder="XXX" type="text">
+
+            <br>
+            -->
+            <label for="station">Station: </label>
+            <select id="station" name="station">
+                <option selected value=""></option>
+                <option data-lines="DP" value="ACT">Acton Town</option>
+                <option data-lines="HM" value="ALD">Aldgate</option>
+                <option data-lines="DH" value="ALE">Aldgate East</option>
+                <option data-lines="P" value="ALP">Alperton</option>
+                <option data-lines="M" value="AME">Amersham</option>
+                <option data-lines="N" value="ANG">Angel</option>
+                <option data-lines="N" value="ARC">Archway</option>
+                <option data-lines="P" value="AGR">Arnos Grove</option>
+                <option data-lines="P" value="ARL">Arsenal</option>
+                <option data-lines="BHJM" value="BST">Baker Street</option>
+                <option data-lines="N" value="BAL">Balham</option>
+                <option data-lines="CNW" value="BNK">Bank</option>
+                <option data-lines="HM" value="BAR">Barbican</option>
+                <option data-lines="DH" value="BKG">Barking</option>
+                <option data-lines="C" value="BDE">Barkingside</option>
+                <option data-lines="DP" value="BCT">Barons Court</option>
+                <option data-lines="D" value="BEC">Becontree</option>
+                <option data-lines="N" value="BPK">Belsize Park</option>
+                <option data-lines="J" value="BER">Bermondsey</option>
+                <option data-lines="C" value="BNG">Bethnal Green</option>
+                <option data-lines="DH" value="BLF">Blackfriars</option>
+                <option data-lines="V" value="BHR">Blackhorse Road</option>
+                <option data-lines="CJ" value="BDS">Bond Street</option>
+                <option data-lines="N" value="BOR">Borough</option>
+                <option data-lines="P" value="BOS">Boston Manor</option>
+                <option data-lines="P" value="BGR">Bounds Green</option>
+                <option data-lines="DH" value="BWR">Bow Road</option>
+                <option data-lines="N" value="BTX">Brent Cross</option>
+                <option data-lines="V" value="BRX">Brixton</option>
+                <option data-lines="DH" value="BBB">Bromley-by-Bow</option>
+                <option data-lines="C" value="BHL">Buckhurst Hill</option>
+                <option data-lines="N" value="BUR">Burnt Oak</option>
+                <option data-lines="P" value="CRD">Caledonian Road</option>
+                <option data-lines="N" value="CTN">Camden Town</option>
+                <option data-lines="J" value="CWR">Canada Water</option>
+                <option data-lines="J" value="CWF">Canary Wharf</option>
+                <option data-lines="J" value="CNT">Canning Town</option>
+                <option data-lines="DH" value="CST">Cannon Street</option>
+                <option data-lines="J" value="CPK">Canons Park</option>
+                <option data-lines="M" value="CLF">Chalfont and Latimer</option>
+                <option data-lines="N" value="CHF">Chalk Farm</option>
+                <option data-lines="C" value="CYL">Chancery Lane</option>
+                <option data-lines="BN" value="CHX">Charing Cross</option>
+                <option data-lines="C" value="CHG">Chigwell</option>
+                <option data-lines="D" value="CHP">Chiswick Park</option>
+                <option data-lines="M" value="CWD">Chorleywood</option>
+                <option data-lines="N" value="CPC">Clapham Common</option>
+                <option data-lines="N" value="CPN">Clapham North</option>
+                <option data-lines="N" value="CPS">Clapham South</option>
+                <option data-lines="P" value="CFS">Cockfosters</option>
+                <option data-lines="N" value="COL">Colindale</option>
+                <option data-lines="MN" value="CLW">Colliers Wood</option>
+                <option data-lines="P" value="COV">Covent Garden</option>
+                <option data-lines="M" value="CRX">Croxley</option>
+                <option data-lines="D" value="DGE">Dagenham East</option>
+                <option data-lines="D" value="DGH">Dagenham Heathway</option>
+                <option data-lines="C" value="DEB">Debden</option>
+                <option data-lines="J" value="DHL">Dollis Hill</option>
+                <option data-lines="CD" value="EBY">Ealing Broadway</option>
+                <option data-lines="DP" value="ECM">Ealing Common</option>
+                <option data-lines="DP" value="ECT">Earl's Court</option>
+                <option data-lines="C" value="EAC">East Acton</option>
+                <option data-lines="N" value="EFY">East Finchley</option>
+                <option data-lines="DH" value="EHM">East Ham</option>
+                <option data-lines="D" value="EPY">East Putney</option>
+                <option data-lines="MP" value="ETE">Eastcote</option>
+                <option data-lines="N" value="EDG">Edgware</option>
+                <option data-lines="B" value="ERB">Edgware Road (Bakerloo)</option>
+                <option data-lines="DH" value="ERD">Edgware Road (H & C)</option>
+                <option data-lines="BN" value="ELE">Elephant and Castle</option>
+                <option data-lines="D" value="EPK">Elm Park</option>
+                <option data-lines="BDHN" value="EMB">Embankment</option>
+                <option data-lines="C" value="EPP">Epping</option>
+                <option data-lines="NV" value="EUS">Euston</option>
+                <option data-lines="HM" value="ESQ">Euston Square</option>
+                <option data-lines="C" value="FLP">Fairlop</option>
+                <option data-lines="HM" value="FAR">Farringdon</option>
+                <option data-lines="N" value="FYC">Finchley Central</option>
+                <option data-lines="JM" value="FRD">Finchley Road</option>
+                <option data-lines="PV" value="FPK">Finsbury Park</option>
+                <option data-lines="D" value="FBY">Fulham Broadway</option>
+                <option data-lines="C" value="GHL">Gants Hill</option>
+                <option data-lines="DHP" value="GRD">Gloucester Road</option>
+                <option data-lines="N" value="GGR">Golders Green</option>
+                <option data-lines="N" value="GST">Goodge Street</option>
+                <option data-lines="C" value="GRH">Grange Hill</option>
+                <option data-lines="HM" value="GPS">Great Portland Street</option>
+                <option data-lines="JPV" value="GPK">Green Park</option>
+                <option data-lines="C" value="GFD">Greenford</option>
+                <option data-lines="D" value="GUN">Gunnersbury</option>
+                <option data-lines="C" value="HAI">Hainault</option>
+                <option data-lines="H" value="HMS">Hammersmith</option>
+                <option data-lines="DP" value="HMD">Hammersmith (District and Picc)</option>
+                <option data-lines="N" value="HMP">Hampstead</option>
+                <option data-lines="C" value="HLN">Hanger Lane</option>
+                <option data-lines="B" value="HSD">Harlesden</option>
+                <option data-lines="B" value="HAW">Harrow and Wealdstone</option>
+                <option data-lines="M" value="HOH">Harrow on the Hill</option>
+                <option data-lines="P" value="HTX">Hatton Cross</option>
+                <option data-lines="P" value="HTF">Heathrow Terminal 4</option>
+                <option data-lines="P" value="HRV">Heathrow Terminal 5</option>
+                <option data-lines="P" value="HRC">Heathrow Terminals 123</option>
+                <option data-lines="N" value="HND">Hendon Central</option>
+                <option data-lines="N" value="HBT">High Barnet</option>
+                <option data-lines="DH" value="HST">High Street Kensington</option>
+                <option data-lines="V" value="HBY">Highbury and Islington</option>
+                <option data-lines="N" value="HIG">Highgate</option>
+                <option data-lines="MP" value="HDN">Hillingdon</option>
+                <option data-lines="CP" value="HOL">Holborn</option>
+                <option data-lines="C" value="HPK">Holland Park</option>
+                <option data-lines="P" value="HRD">Holloway Road</option>
+                <option data-lines="D" value="HCH">Hornchurch</option>
+                <option data-lines="P" value="HNC">Hounslow Central</option>
+                <option data-lines="P" value="HNE">Hounslow East</option>
+                <option data-lines="P" value="HNW">Hounslow West</option>
+                <option data-lines="P" value="HPC">Hyde Park Corner</option>
+                <option data-lines="MP" value="ICK">Ickenham</option>
+                <option data-lines="N" value="KEN">Kennington</option>
+                <option data-lines="B" value="KGN">Kensal Green</option>
+                <option data-lines="D" value="OLY">Kensington (Olympia)</option>
+                <option data-lines="N" value="KTN">Kentish Town</option>
+                <option data-lines="B" value="KNT">Kenton</option>
+                <option data-lines="D" value="KEW">Kew Gardens</option>
+                <option data-lines="J" value="KIL">Kilburn</option>
+                <option data-lines="B" value="KPK">Kilburn Park</option>
+                <option data-lines="HMNPV" value="KXX">King's Cross St Pancras</option>
+                <option data-lines="J" value="KBY">Kingsbury</option>
+                <option data-lines="P" value="KNB">Knightsbridge</option>
+                <option data-lines="B" value="LAM">Lambeth North</option>
+                <option data-lines="C" value="LAN">Lancaster Gate</option>
+                <option data-lines="NP" value="LSQ">Leicester Square</option>
+                <option data-lines="C" value="LEY">Leyton</option>
+                <option data-lines="C" value="LYS">Leytonstone</option>
+                <option data-lines="CHM" value="LST">Liverpool Street</option>
+                <option data-lines="JN" value="LON">London Bridge</option>
+                <option data-lines="C" value="LTN">Loughton</option>
+                <option data-lines="B" value="MDV">Maida Vale</option>
+                <option data-lines="P" value="MNR">Manor House</option>
+                <option data-lines="DH" value="MAN">Mansion House</option>
+                <option data-lines="C" value="MAR">Marble Arch</option>
+                <option data-lines="B" value="MYB">Marylebone</option>
+                <option data-lines="CDH" value="MLE">Mile End</option>
+                <option data-lines="N" value="MHE">Mill Hill East</option>
+                <option data-lines="DH" value="MON">Monument</option>
+                <option data-lines="M" value="MPK">Moor Park</option>
+                <option data-lines="HMN" value="MGT">Moorgate</option>
+                <option data-lines="N" value="MOR">Morden</option>
+                <option data-lines="N" value="MCR">Mornington Crescent</option>
+                <option data-lines="J" value="NEA">Neasden</option>
+                <option data-lines="C" value="NEP">Newbury Park</option>
+                <option data-lines="C" value="NAC">North Acton</option>
+                <option data-lines="P" value="NEL">North Ealing</option>
+                <option data-lines="J" value="NGW">North Greenwich</option>
+                <option data-lines="M" value="NHR">North Harrow</option>
+                <option data-lines="B" value="NWM">North Wembley</option>
+                <option data-lines="P" value="NFD">Northfields</option>
+                <option data-lines="C" value="NHT">Northolt</option>
+                <option data-lines="M" value="NWP">Northwick Park</option>
+                <option data-lines="M" value="NWD">Northwood</option>
+                <option data-lines="M" value="NWH">Northwood Hills</option>
+                <option data-lines="C" value="NHG">Notting Hill Gate</option>
+                <option data-lines="P" value="OAK">Oakwood</option>
+                <option data-lines="N" value="OLD">Old Street</option>
+                <option data-lines="P" value="OST">Osterley</option>
+                <option data-lines="N" value="OVL">Oval</option>
+                <option data-lines="BCV" value="OXC">Oxford Circus</option>
+                <option data-lines="BH" value="PAD">Paddington</option>
+                <option data-lines="P" value="PRY">Park Royal</option>
+                <option data-lines="D" value="PGR">Parsons Green</option>
+                <option data-lines="C" value="PER">Perivale</option>
+                <option data-lines="BP" value="PIC">Piccadilly Circus</option>
+                <option data-lines="V" value="PIM">Pimlico</option>
+                <option data-lines="M" value="PIN">Pinner</option>
+                <option data-lines="DH" value="PLW">Plaistow</option>
+                <option data-lines="D" value="PUT">Putney Bridge</option>
+                <option data-lines="B" value="QPK">Queen's Park</option>
+                <option data-lines="J" value="QBY">Queensbury</option>
+                <option data-lines="C" value="QWY">Queensway</option>
+                <option data-lines="D" value="RCP">Ravenscourt Park</option>
+                <option data-lines="MP" value="RLN">Rayners Lane</option>
+                <option data-lines="C" value="RED">Redbridge</option>
+                <option data-lines="B" value="RPK">Regent's Park</option>
+                <option data-lines="D" value="RMD">Richmond</option>
+                <option data-lines="M" value="RKY">Rickmansworth</option>
+                <option data-lines="C" value="ROD">Roding Valley</option>
+                <option data-lines="MP" value="RUI">Ruislip</option>
+                <option data-lines="C" value="RUG">Ruislip Gardens</option>
+                <option data-lines="MP" value="RUM">Ruislip Manor</option>
+                <option data-lines="P" value="RSQ">Russell Square</option>
+                <option data-lines="V" value="SVS">Seven Sisters</option>
+                <option data-lines="C" value="SBC">Shepherd's Bush</option>
+                <option data-lines="DH" value="SSQ">Sloane Square</option>
+                <option data-lines="C" value="SNB">Snaresbrook</option>
+                <option data-lines="P" value="SEL">South Ealing</option>
+                <option data-lines="P" value="SHR">South Harrow</option>
+                <option data-lines="DHP" value="SKN">South Kensington</option>
+                <option data-lines="B" value="SKT">South Kenton</option>
+                <option data-lines="C" value="SRP">South Ruislip</option>
+                <option data-lines="N" value="SWM">South Wimbledon</option>
+                <option data-lines="C" value="SWF">South Woodford</option>
+                <option data-lines="D" value="SFS">Southfields</option>
+                <option data-lines="P" value="SGT">Southgate</option>
+                <option data-lines="J" value="SWK">Southwark</option>
+                <option data-lines="J" value="SJW">St John's Wood</option>
+                <option data-lines="C" value="STP">St Paul's</option>
+                <option data-lines="DH" value="SJP">St. James's Park</option>
+                <option data-lines="D" value="STB">Stamford Brook</option>
+                <option data-lines="J" value="STA">Stanmore</option>
+                <option data-lines="DH" value="STG">Stepney Green</option>
+                <option data-lines="NV" value="STK">Stockwell</option>
+                <option data-lines="B" value="SPK">Stonebridge Park</option>
+                <option data-lines="CJ" value="SFD">Stratford</option>
+                <option data-lines="P" value="SHL">Sudbury Hill</option>
+                <option data-lines="P" value="STN">Sudbury Town</option>
+                <option data-lines="J" value="SWC">Swiss Cottage</option>
+                <option data-lines="DH" value="TEM">Temple</option>
+                <option data-lines="C" value="THB">Theydon Bois</option>
+                <option data-lines="N" value="TBE">Tooting Bec</option>
+                <option data-lines="N" value="TBY">Tooting Broadway</option>
+                <option data-lines="CN" value="TCR">Tottenham Court Road</option>
+                <option data-lines="V" value="TTH">Tottenham Hale</option>
+                <option data-lines="N" value="TOT">Totteridge and Whetstone</option>
+                <option data-lines="DH" value="THL">Tower Hill</option>
+                <option data-lines="N" value="TPK">Tufnell Park</option>
+                <option data-lines="DP" value="TGR">Turnham Green</option>
+                <option data-lines="P" value="TPL">Turnpike Lane</option>
+                <option data-lines="D" value="UPM">Upminster</option>
+                <option data-lines="D" value="UPB">Upminster Bridge</option>
+                <option data-lines="D" value="UPY">Upney</option>
+                <option data-lines="DH" value="UPK">Upton Park</option>
+                <option data-lines="MP" value="UXB">Uxbridge</option>
+                <option data-lines="V" value="VUX">Vauxhall</option>
+                <option data-lines="DHV" value="VIC">Victoria</option>
+                <option data-lines="V" value="WAL">Walthamstow Central</option>
+                <option data-lines="C" value="WAN">Wanstead</option>
+                <option data-lines="NV" value="WST">Warren Street</option>
+                <option data-lines="B" value="WAR">Warwick Avenue</option>
+                <option data-lines="BJNW" value="WLO">Waterloo</option>
+                <option data-lines="M" value="WAT">Watford</option>
+                <option data-lines="B" value="WEM">Wembley Central</option>
+                <option data-lines="JM" value="WPK">Wembley Park</option>
+                <option data-lines="C" value="WAC">West Acton</option>
+                <option data-lines="D" value="WBT">West Brompton</option>
+                <option data-lines="N" value="WFY">West Finchley</option>
+                <option data-lines="DHJ" value="WHM">West Ham</option>
+                <option data-lines="J" value="WHD">West Hampstead</option>
+                <option data-lines="M" value="WHR">West Harrow</option>
+                <option data-lines="D" value="WKN">West Kensington</option>
+                <option data-lines="C" value="WRP">West Ruislip</option>
+                <option data-lines="DHJ" value="WMS">Westminster</option>
+                <option data-lines="C" value="WCT">White City</option>
+                <option data-lines="DH" value="WCL">Whitechapel</option>
+                <option data-lines="J" value="WLG">Willesden Green</option>
+                <option data-lines="B" value="WJN">Willesden Junction</option>
+                <option data-lines="D" value="WDN">Wimbledon</option>
+                <option data-lines="D" value="WMP">Wimbledon Park</option>
+                <option data-lines="P" value="WGN">Wood Green</option>
+                <option data-lines="C" value="WFD">Woodford</option>
+                <option data-lines="N" value="WSP">Woodside Park</option>
+            </select>
+        </div>
+
+        <br>
 
         <input type="submit" value="Go">
     </form>
+
+    <script>
+        document.querySelector("#line").addEventListener("change", (event) => {
+            const line = event.target.value;
+
+            const selectEl = document.querySelector("#station")
+            // [data-lines] so it doesn't try to do anything with the "default" blank option
+            const optionEls = Array.from(selectEl.querySelectorAll("option[data-lines]"));
+
+            // Hide them all first
+            optionEls.forEach((el) => el.classList.add("hidden"));
+
+            // Now just show the ones that belong to that line
+            optionEls
+                // Just do a string search so we can avoid having to split it
+                // into an array and doing a `.indexOf`, which would be
+                // unnecessarily expensive
+                .filter((el) => el.getAttribute("data-lines").search(line) >= 0)
+                .forEach((el) => el.classList.remove("hidden"));
+            
+            // Reset the select to index `0` (blank) because otherwise it'll
+            // just stay on whatever we had selected previously
+            selectEl.selectedIndex = 0;
+        });
+    </script>
 </body>
 
 </html>
