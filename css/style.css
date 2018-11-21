@@ -10,10 +10,8 @@ body {
 }
 
 
-input#station {
-    /* TrackerNet's API is case-insensitive AFAICT so 
-     * no need to actually enforce uppercase for inputs */
-    text-transform: uppercase;
+.hidden {
+    display: none !important;
 }
 
 
