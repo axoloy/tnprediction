@@ -7,7 +7,7 @@
 const ATTRS = ["Location", "Destination", "TripNo", "TimeTo", "DepartTime", "DepartInterval"];
 
 const API_URL = "https://api.tfl.gov.uk/TrackerNet/PredictionDetailed";
-const CORS_URL = "https://cors-anywhere.herokuapp.com";
+const CORS_URL = "https://axoloy-cors.herokuapp.com";
 
 
 const searchParams = new URLSearchParams(window.location.search);
@@ -37,7 +37,10 @@ $.ajax({
     error: (xhr, status, err) => {
         $("#header #sub")
             .addClass("error")
-            .text(`Error\nStatus: "${status}",\nError: "${err}"`);
+            .text(`Error!
+                   ResponseText: ${xhr.responseText},
+                   Status: "${status}",
+                   Error: "${err}"`);
     },
 
     success: (xml) => {
